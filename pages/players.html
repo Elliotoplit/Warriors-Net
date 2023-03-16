@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" type="image/x-icon" />
+    <title>勇士队球员名单</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/players.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <div id="app" class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <!-- 球员数据 -->
+                <div class="card swiper-slide" v-for="player in players">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img :src="player.imgUrl" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">{{player.name}}</h2>
+                        <p class="description">{{player.description}}</p>
+                        <button class="button">{{player.number}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="back">
+        <a href="../index.html">Back</a>
+    </div>
+</body>
+
+<!-- Swiper JS -->
+<script src="../script/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="../script/players.js"></script>
+
+</html>

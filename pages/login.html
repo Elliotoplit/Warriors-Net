@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>登录注册</title>
+</head>
+
+
+<body>
+    <div class="shell">
+        <!-- 上半部分  -->
+        <div class="top">
+            <span class="off">SIGN IN</span>
+            <div class="button">
+                <div class="ball"></div>
+            </div>
+            <span class="on">SIGN UP</span>
+        </div>
+        <!-- 下半部分 -->
+        <div class="bottom" id="app">
+                <form class="signIn">
+                    <!-- 登录页面 -->
+                    <h2>登录</h2>
+                    <input type="text" id="phonenumber" v-model="user.phoneNum" placeholder="手机号">
+                    <input type="text" id="password" v-model="user.password" placeholder="密码">
+                    <button type="button" @click="login">GO</button>
+                    <div class="msg" id="msg">{{msg}}</div>
+                    <h5 class="statemt">{{msg1}}</h5>
+                </form>
+
+
+            <!-- 注册页面 -->
+            <form class="signUp">
+                <h2>注册</h2>
+                <input type="text" placeholder="手机号">
+                <input type="text" placeholder="密码">
+                <input type="text" placeholder="验证码">
+                <button type="submit">GO</button>
+                <h5 class="statemt">{{msg2}}</h5>
+            </form>
+        </div>
+    </div>
+
+    <script src="../script/login.js"></script>
+
+
+    <!-- script部分 -->
+
+
+
+</body>
+
+
+
+</html>

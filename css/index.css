@@ -1,0 +1,719 @@
+* {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+
+
+/*头部：header*/
+header {
+	width: 100%;
+	position: relative;
+}
+
+header .topArea {
+	height: 50px;
+	background-color: #0146ad;
+	position: relative;
+}
+
+.titleArea:hover {
+	cursor: pointer;
+}
+
+header .topArea span {
+	/* 文字修饰 */
+	line-height: 50px;
+	color: #f4cd56;
+	text-transform: uppercase;
+	font-weight: bolder;
+	position: absolute;
+	padding: 5px 10px;
+}
+
+header .topArea img {
+	height: 100%;
+	padding: 5px 10px;
+}
+
+header .topArea .login {
+	height: 100%;
+	position: absolute;
+	right: 65px;
+	bottom: 5px;
+	text-decoration: none;
+}
+
+header .topArea .signup {
+	height: 100%;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	text-decoration: none;
+}
+
+header .topArea .login a,
+header .topArea .signup a {
+
+	text-decoration: none;
+	font-weight: bold;
+	font-size: small;
+	color: white;
+	border-radius: 1px;
+	padding: 5px 10px;
+	outline: 2px #f4cd56 solid;
+}
+
+/* 轮播海报 */
+.scrollArea {
+	padding: 5px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: top;
+	height: 400px;
+	background-color: #f0f3fb;
+}
+
+.shell {
+	width: 90%;
+	height: 390px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
+	border: 10px rgb(45, 99, 179) solid;
+	/* box-shadow: 20px 30px 20px rgba(0, 0, 0, 0.5); */
+}
+
+.images {
+	width: 300%;
+	height: 100%;
+	display: flex;
+	position: absolute;
+	left: 0;
+	transition: .2s;
+}
+
+.img {
+	width: 100%;
+	background-size: cover;
+}
+
+.img:nth-child(1) {
+	background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/team.jpg");
+}
+
+.img:nth-child(2) {
+	background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/handsUp.jpg");
+}
+
+.img:nth-child(3) {
+	background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/kobe-curry.jpg");
+}
+
+.min-images {
+	opacity: 0;
+	display: flex;
+	justify-content: space-evenly;
+	position: absolute;
+	bottom: 20px;
+	width: 40%;
+	z-index: 999;
+	right: 10%;
+}
+
+.min {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	border-radius: 50%;
+	background-size: cover;
+	border: solid rgba(255, 255, 255, 0.5) 5px;
+	background-position: -20px 0;
+}
+
+.min:nth-child(1) {
+	background-image: url("https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/players.jpg");
+}
+
+.min:nth-child(2) {
+	background-image: url("https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/KT.jpg");
+}
+
+.min:nth-child(3) {
+	background-image: url("https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/players.jpg");
+}
+
+.button {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.button-left,
+.button-right {
+	color: #f4cd56;
+	font-size: 50px;
+	background-color: rgba(160, 193, 255, 0.7);
+	padding: 0 2px;
+	/* 左右按键大小 */
+	cursor: pointer;
+	line-height: 370px;
+}
+
+/* 音乐 */
+.music {
+	width: 300px;
+	margin: 0 auto;
+
+}
+
+/* 导航栏 */
+.container {
+	/* background: rgb(211, 211, 251); */
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+nav {
+	width: 90%;
+	background: #fff;
+	border-radius: 30px;
+	padding: 5px;
+	box-shadow: 0 5px 2px -2px rgba(0, 0, 0, 0.4);
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+nav ul li {
+	width: 20%;
+	list-style: none;
+	display: inline;
+	text-decoration: none;
+	white-space: nowrap;
+	padding: 5px 5px;
+	margin: 10px;
+	font-size: 18px;
+	font-weight: 500;
+	text-align: center;
+	color: #777;
+	cursor: pointer;
+	position: relative;
+	z-index: 2;
+	transition: color 0.5s;
+}
+
+nav ul li::after {
+	content: '';
+	background: #eca60e;
+
+	width: 100%;
+	height: 100%;
+	border-radius: 30px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity: 0;
+	transition: top 0.5s, opacity 0.5s;
+}
+
+nav ul li:hover {
+	color: #0146ad;
+	font-weight: bold;
+}
+
+nav ul li:hover::after {
+	top: 50%;
+	opacity: 1;
+}
+
+
+/* 内容*/
+.bigContent {
+	width: 100%;
+	height: 1950px;
+	background: rgb(239, 245, 177);
+	background: linear-gradient(90deg, rgba(239, 245, 177, 1) 0%,
+	 rgba(186, 214, 242, 1) 44%, rgba(252, 243, 146, 1) 100%);
+}
+
+.contentTitle {
+	text-align: center;
+	font-weight: bold;
+	word-spacing: 10px;
+	font-size: larger;
+	color: #0146ad;
+	padding: 5px;
+}
+
+.contentTitle .congratulations {
+	color: red;
+	letter-spacing: 15px;
+	font-size: larger;
+}
+
+.contentArea1,
+.contentArea2 {
+	display: flex;
+	justify-content: space-around;
+}
+
+/* 赛程 直播*/
+.schedule,
+.toLive {
+	overflow: auto;
+	width: 200px;
+	height: 400px;
+	margin: 20px 5px 5px;
+	text-align: center;
+	border: 3px outset rgb(96, 167, 229);
+	background: rgba(221, 233, 254, 0.462);
+	-webkit-backdrop-filter: blur(11px);
+	backdrop-filter: blur(11px);
+
+}
+
+.schedule .title,
+.toLive .title {
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 10px;
+	background-color: rgb(246, 194, 25);
+
+}
+
+.schedule .gameList {
+	margin: 0 auto;
+
+
+}
+
+.gameList li {
+
+	cursor: pointer;
+	padding: 4.5px;
+	border-bottom: 1px dashed rgb(124, 157, 228);
+}
+
+.gameList li:last-child {
+	border-bottom: none;
+}
+
+.gameList li .num {
+	color: rgb(23, 124, 14);
+}
+
+.gameList li .team {
+	color: #0146ad;
+	font-weight: 700;
+}
+
+.gameList li .mid {
+	font-size: small;
+	text-shadow: 1px 1px 1px red;
+}
+
+li .date {
+	color: #0146ad;
+	font-size: smaller;
+	height: 3px;
+
+}
+
+/* 直播 + */
+.liveList {
+	height: 92%;
+}
+
+.liveList ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 98%;
+	overflow-y: scroll;
+}
+.liveList ul::-webkit-scrollbar{
+	width: 0 !important
+}
+
+.liveList ul li {
+	font-size: larger;
+	font-weight: bold;
+	flex: 1;
+	border-bottom: 1px solid red;
+	vertical-align: middle;
+	padding: auto 0;
+	line-height: 55px;
+}
+
+.liveList ul li:last-child {
+	border-bottom: none;
+}
+
+.liveList ul li .free {
+	font-size: small;
+	color: green;
+}
+
+
+.liveList ul li:visited {
+	color: #0000ee;
+}
+
+
+/* 开发者：Elliot 李豪 */
+
+
+/* 名片 */
+developer {
+	display: flex;
+	justify-content: center;
+	background: linear-gradient(to left,
+			rgb(238, 92, 92),
+			rgb(154, 127, 250));
+}
+
+.a {
+	position: relative;
+	width: 400px;
+	height: 200px;
+	top: 150px;
+}
+
+.b {
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	border-radius: 20px;
+	/* 设置渐变 */
+	background: linear-gradient(to right bottom,
+			rgba(255, 255, 255, .6),
+			rgba(255, 255, 255, .3),
+			rgba(255, 255, 255, .2));
+	/* 重点：使元素背景模糊化 */
+	-webkit-backdrop-filter: blur(11px);
+	backdrop-filter: blur(11px);
+	/* 设置上高光和左高光，使其看起来更加逼真 */
+	border-top: 1px solid rgba(255, 255, 255, .8);
+	border-left: 1px solid rgba(255, 255, 255, .8);
+}
+
+.b span {
+	/* 设置文字的大小和粗细 */
+	font: 900 50px '';
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	color: rgba(0, 0, 0, .5);
+	/* 设置文字阴影 */
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, .7);
+}
+
+.b p {
+	font: 900 25px '';
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	color: rgba(255, 255, 255, .3);
+	/* 设置字体间距 */
+	letter-spacing: 3px;
+}
+
+
+
+/* 资讯 */
+.news {
+	width: 100%;
+	height: 400px;
+	margin: 20px 7%;
+	text-align: center;
+	border: 3px outset rgb(96, 167, 229);
+}
+
+.news .title {
+	height: 8%;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 10px;
+	background-color: rgb(246, 194, 25);
+}
+
+.news .content {
+	height: 92%;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.news .content .post {
+	width: 100%;
+	text-align: left;
+	border-bottom: 1px dotted black;
+	font-size: large;
+	padding: 15px 0;
+	position: relative;
+}
+
+/* 文章前的实心居中小圆点 */
+.dot {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: rgb(11, 109, 155);
+	opacity: 0.9;
+	margin-left: 6px;
+	margin-bottom: 3px;
+}
+
+.time {
+	position: absolute;
+	left: 85%;
+	color: #1b93e8;
+	font-size: medium;
+}
+
+.news .content .post:last-child {
+	border-bottom: none;
+}
+
+
+/* 纪录片 */
+.contentArea3 {
+	display: flex;
+	flex-direction: column;
+}
+
+.documentary {
+	width: 90%;
+	height: 80%;
+	margin: 20px auto;
+	overflow: hidden;
+	border: 3px outset rgb(96, 167, 229);
+	background: #000;
+}
+
+.documentary .title {
+	height: 35px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 10px;
+	background-color: rgb(246, 194, 25);
+	position: relative;
+}
+.documentary .title .last,
+.documentary .title .next{
+	color: rgb(34, 94, 222);
+	cursor: pointer;
+	position: absolute;
+	font-weight: bolder;
+	font-size: larger;
+}
+.documentary .title .last{
+	left: 20px;
+}
+.documentary .title .next{
+	right: 20px;
+}
+.documentary .title .next:hover,
+.documentary .title .last:hover{
+	text-shadow: 1px 1px 2px white ;
+	color: #0d50b5;
+}
+
+.documentary .content {
+	height: auto;
+	width: auto;
+	background: #000;
+}
+
+.documentary .content video {
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+
+/* footer*/
+.footer {
+	text-align: center;
+	margin: 50px auto 20px;
+	background: rgba(235, 232, 232, 0.2);
+	-webkit-backdrop-filter: blur(35px);
+	backdrop-filter: blur(35px);
+}
+
+.footer span {
+	text-align: center;
+	margin: 50px auto 20px;
+}
+
+
+/* 响应式布局 */
+
+@media (max-width: 800px) {
+	nav ul li {
+		font-size: small;
+	}
+}
+
+@media (max-width: 500px) {
+	nav ul li {
+		font-size: smaller;
+		margin: auto;
+		padding: 0;
+	}
+
+}
+
+/*  */
+@media (max-width: 600px) {
+	header .topArea span {
+		font-size: small;
+	}
+
+	/* 小页面的海报 */
+	header .scrollArea .shell .images .img:nth-child(1) {
+		background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/min-happyTime.jpg");
+	}
+
+	header .scrollArea .shell .images .img:nth-child(2) {
+		background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/min-team.jpg");
+	}
+
+	header .scrollArea .shell .images .img:nth-child(3) {
+		background-image: url("https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/min-happyAll.jpg");
+	}
+
+	header .scrollArea .button-left,
+	header .scrollArea .button-right {
+		font-size: 30px;
+		background-color: rgba(160, 193, 255, 0.7);
+		padding: 0 1px;
+		/* 按键大小 */
+	}
+
+	.news .content .post {
+		font-size: smaller;
+	}
+
+}
+
+@media (max-width: 750px) {
+	.developer {
+		display: none;
+	}
+
+	.news .content .post .time {
+		display: none;
+	}
+
+}
+
+
+
+/* 手机页面底部自适应 */
+@media (max-width: 600px) {
+	.bigContent {
+		height: 1630px;
+	}
+
+}
+
+@media (max-width: 520px) {
+	.bigContent {
+		height: 1550px;
+	}
+
+	.footer {
+		margin: 20px auto 5px;
+	}
+
+}
+
+@media (max-width: 450px) {
+	.bigContent {
+		height: 1500px;
+	}
+
+	.footer span {
+		text-align: center;
+		margin: 20px auto 10px;
+	}
+}
+
+@media (max-width: 430px) {
+	.bigContent {
+		height: 1475px;
+	}
+
+	.footer span {
+		text-align: center;
+		margin: 30px auto 10px;
+	}
+
+}
+
+@media (max-width: 420px) {
+	.bigContent {
+		height: 1450px;
+	}
+}
+
+
+/* 海报侧边栏手机自适应 小米浏览器393 */
+@media (max-width:400px) {
+	.scrollArea {
+		padding: 5px 0px;
+		height: 210px;
+	}
+
+	.shell {
+		width: 90%;
+		height: 200px;
+		border-radius: 5px;
+		border: 5px rgb(45, 99, 179) solid;
+	}
+
+	.button-left,
+	.button-right {
+		padding: 0 2px;
+		/* 左右按键大小 */
+		line-height: 190px;
+		/* 左右按键位置 */
+	}
+
+	/* 主标题祝福语 */
+	.contentTitle .congratulations {
+		letter-spacing: 4px;
+		font-size: smaller;
+
+	}
+
+	/* 赛程 直播*/
+	.schedule,
+	.toLive {
+
+		width: 170px;
+		height: 400px;
+		margin: 20px 10px 5px;
+
+	}
+}

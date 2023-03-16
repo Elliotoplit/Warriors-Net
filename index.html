@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="icon" href="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" type="image/x-icon" />
+	<title>金州勇士 Golden State</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+	<div id="app">
+	<header>
+		<!--头部:logo 登录注册 海报 -->
+		<div class="topArea">
+			<img src="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" alt="logo加载失败">
+			<span class="titleArea">Golden State Warriors</span>
+			<span class="login"><a href="pages/login.html">登录</a></span>
+			<span class="signup"><a href="pages/login.html">注册</a></span>
+		</div>
+		<div class="scrollArea">
+			<div class="shell">
+				<ul class="images">
+					<li class="img"></li>
+					<li class="img"></li>
+					<li class="img"></li>
+				</ul>
+				<ul class="min-images">
+					<li class="min"></li>
+					<li class="min"></li>
+					<li class="min"></li>
+				</ul>
+				<div class="button">
+					<div class="button-left">
+						< </div>
+							<div class="button-right"> > </div>
+					</div>
+				</div>
+			</div>
+	</header>
+	<!--内容区域-->
+	<section class="bigContent">
+		<!-- 网站标题板块 -->
+		<div class="contentTitle">
+			金 州 勇 士 队 中 文 网<br>
+			<span class="congratulations">恭喜金州勇士队荣膺2022年度总冠军！</span>
+		</div>
+		<!-- 网站音乐板块 -->
+		<div class="music">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=100 title="bgmusic":src="musicUrl"></iframe>
+		</div>
+		<!-- 网站导航栏板块 -->
+		<section class="container">
+			<nav>
+				<ul>
+					<li><a href="pages/fame.html" title="toFame">荣誉馆</a></li>
+					<li><a href="https://china.nba.cn/teams/schedule/#!/warriors">赛程</a></li>
+					<li><a href="#contentArea3">纪录片</a></li>
+					<li><a href="pages/appList.html" title="toWatch">观看比赛</a></li>
+					<li><a href="pages/players.html">球员名单</a></li>
+				</ul>
+			</nav>
+		</section>
+		<!-- 内容分区1：赛程 作者 直播-->
+		<section class="contentArea1">
+			<!-- 赛程 -->
+			<aside class="schedule">
+				<div class="title">勇士队赛程</div>
+				<a href="https://china.nba.cn/teams/schedule/#!/warriors" target="_blank" rel="noopener">
+					<ul class="gameList" οnclick="toGameList()">
+						<!-- 比赛序号不为空时才展示序号 -->
+						<li οnclick="toGameList" v-for="item in gameList"><span class="num" v-if="item.order!=''">{{item.order}}</span>
+							<span class="team">{{item.team[0]}}</span>
+							<span class="mid">VS</span>
+							<span class="team">{{item.team[1]}}</span><br>
+							<span class="date">{{item.date}}</span>
+						</li>
+					</ul>
+				</a>
+			</aside>
+			<!-- 作者 -->
+			<div class="developer">
+				<div class="a">
+					<div class="b">
+						<span>Lets Go Warriors</span>
+						<P>Elliotoplit！</P>
+					</div>
+					<div class="c"></div>
+					<div class="d"></div>
+				</div>
+			</div>
+			<!-- 直播 -->
+			<section class="toLive">
+				<div class="title">观看直播</div>
+				<div class="liveList">
+					<ul>
+						<li v-for="item,index in players">
+							<a :href="item.link" target="_blank" rel="noopener">
+							<span class="'app':index+1==players.length">
+								{{item.site}}
+								<span class="free" v-if="index+1==players.length">Free</span>
+							</span></a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</section>
+		<!-- 内容分区2:新闻 -->
+		<section class="contentArea2">
+			<article class="news">
+				<div class="title">勇士队近期资讯</div>
+				<div class="content">
+					<div class="post" v-for="item in news" >
+						<div class="dot"></div>
+						<a :href="item.url">{{item.title}}</a>
+						<span class="time" style="color: red">{{item.date}}</span>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- 内容分区3:纪录片 -->
+		<section class="contentArea3" id="contentArea3">
+			<div class="documentary">
+				<div class="title">
+					<span class="last" @click="toPrev"> < </span>
+					<span>勇士纪录片</span>
+					<span class="next" @click="toNext"> > </span>
+				</div>
+				<div class="content">
+					<video  controls :poster="video.poster" :src="video.src"></video>
+				</div>
+				<div>{{players}}</div>
+			</div>
+		</section>
+		<!--页脚-->
+		<footer>
+			<div class="footer">
+				<section>
+					<a href="https://warriorscn.netlify.app/" target="_blank">勇士中文网</a>
+					<a href="https://qm.qq.com/cgi-bin/qm/qr?k=3mzn_uoIbxbqUOa6DBsalOnlyd5mjNZc&noverify=0"
+						target="_blank">联系开发者</a>
+					<a href="pages/updateReport.html" target="_blank">更新日志</a>
+				</section>
+				<span style="padding:2px 5px;">蜀ICP备2022011866号</span>
+				<span style="padding:2px 5px;">warriorscn.netlify.app</span>
+			</div>
+		</footer>
+	</section>	
+	</div>
+</body>
+<!-- 在body后引入js文件，防止js加载时标签没加载完。 -->
+<script src="script/index.js"></script>
+
+</html>

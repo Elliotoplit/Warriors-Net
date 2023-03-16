@@ -1,0 +1,101 @@
+html {
+    background-color: #c8e3f5;
+}
+/* PLease Dont Copy Before Asking Elliot! */
+.container {
+    width: 90%;
+    margin: 5% auto;
+    padding: 2% 3%;
+    border-radius: 50px;
+    background: #cbdbfc;
+    box-shadow: inset 28px 28px 55px #7cb7ee,
+        inset -28px -28px 55px #faf4b3;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    width: 40px;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+/* 表格区域 */
+table {
+    width: 100%;
+    padding: 10px;
+    border: 2px inset rgb(57, 151, 214);
+    border-radius: 40px;
+    text-align: center;
+}
+
+table thead th {
+    border-bottom: 2px dotted #f0d610;
+}
+table tbody tr{
+    height: 50px;
+}
+table tbody tr td:first-child{
+    font-weight: bold;
+    color: rgb(247, 89, 21);
+}
+table tbody tr td:last-child a{
+    font-weight: bolder;
+    padding: 1px 5px;
+    margin: 0;
+    border: 3px solid blue;
+    border-radius: 10px;
+}
+table tbody a {
+    text-decoration: none;
+}
+.firstC{
+    font-weight: bolder;
+}
+/* back */
+.back {
+    margin: auto;
+    text-decoration: none;
+    border: 2px solid blue;
+    border-radius: 10px;
+    padding: 5px 3px;
+    width: 40px;
+}
+.back:hover{
+    box-shadow: 2px 2px 5px rgb(237, 115, 33);
+    border: 2px solid rgb(145, 145, 240);
+  }
+.back a {
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold
+}
+/* 响应式布局 */
+/* 小页面 小字体 */
+@media (max-width: 445px) {
+    tbody{
+        font-size: small;
+    }
+}
+@media (max-width: 420px) {
+    table tbody tr td:last-child a{
+        font-weight: bold;
+        font-size: smaller;
+        padding: 1px;
+        border: 2px solid rgb(13, 80, 248);
+        border-radius: 5px;
+    }
+}
+/* 大页面 高行距 */
+@media (min-width: 1000px) {
+    table tbody tr{
+        height: 50px;
+    }
+}

@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+body {
+    height: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/loginBgImg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/* 手机端登录背景 */
+@media (max-width:400px){
+    body{
+        background-image: url(https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/warriorBG.png);
+    }
+}
+
+.shell {
+    width: 300px;
+    height: 380px;
+    margin-top: 100px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* 给最外层加透视，否则没有翻转效果 */
+    perspective: 1000px;
+}
+
+.top {
+    width: 300px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
+}
+
+.off,
+.on {
+    color: white;
+    transition: .5s;
+    font: 300 20px '';
+}
+
+.on {
+    opacity: .5;
+}
+
+.button {
+    width: 60px;
+    height: 25px;
+    background-color: rgb(255, 235, 167);
+    border-radius: 20px;
+    position: relative;
+}
+
+.ball {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(46, 45, 46);
+    border-radius: 50%;
+    transition: .5s;
+    box-shadow: 0 0 10px black;
+    left: 0;
+    transform: translate(-1px);
+}
+
+.bottom {
+    width: 300px;
+    height: 280px;
+    background-image: url(https://bucketoelliot.oss-cn-chengdu.aliyuncs.com/img/loginbackgroundx.png);
+    transform-style: preserve-3d;
+    /* 3D效果 */
+    position: relative;
+    transition: 1s;
+    border-radius: 5px;
+}
+
+.bottom>form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.bottom>form h2 {
+    color: white;
+}
+
+.bottom>form input {
+    width: 200px;
+    height: 25px;
+    padding: 0px 10px;
+    background-color: rgb(21, 14, 14);
+    border-radius: 5px;
+    color: white;
+}
+
+.bottom>form input:hover {
+    box-shadow: 0px 0px 5px rgb(247, 214, 201);
+}
+
+.bottom>form input:focus {
+    border: 3px rgb(226, 25, 25);
+}
+
+.bottom>form button {
+    width: 80px;
+    height: 30px;
+    color: #333;
+    font-size: 15px;
+    background-color: rgb(255, 235, 167);
+    border-radius: 4px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.bottom>form button:hover {
+    box-shadow: 0 0 10px rgb(255, 235, 167);
+}
+
+.signIn {
+    transform: translateZ(70px);
+}
+
+.signUp {
+    position: absolute;
+    top: 0;
+    transform: translateZ(-70px) rotateY(180deg);
+}
+
+.statemt {
+    color: white;
+    font-size: small;
+}
+
+.statemt a:link {
+    padding: 10px 0px;
+    color: rgb(24, 88, 216);
+    text-decoration: none;
+}
+
+.msg {
+    color: red;
+    display: none;
+}

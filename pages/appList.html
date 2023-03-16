@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/appList.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Golden State 直播App大全</title>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <span class="logo"><img src="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" alt="logo加载中ing"></span>
+        <h1>免费体育直播APP推荐</h1>
+        <h2>持续更新中ing</h2>
+        <h2><a href="mailto:614871603@qq.com">欢迎邮件投稿</a></h2>
+        <table>
+            <thead>
+                <th>App</th>
+                <th>画质</th>
+                <th>流畅度</th>
+                <th>价格</th>
+                <th>特色</th>
+                <th>链接</th>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in appList">
+                    <td>{{item.appName}}</td>
+                    <td>{{item.definition}}</td>
+                    <td>{{item.fluency}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.characteristic}}</td>
+                    <td><a :href="item.link">下载</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">Back</a>
+    </div>
+</body>
+
+</html>
+
+<script src="../script/appList.js"></script>
