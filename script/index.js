@@ -2,9 +2,11 @@
 var vm = new Vue({
     el: "#app",
     data: {
+        slogan:"恭喜金州勇士队挺进2023季后赛!",
         musicUrl: "https://music.163.com/outchain/player?type=2&id=1329664405&auto=0&height=66",
         video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/warriorsGO.mp4'},
         news: [
+            { title: " 祝贺勇士队，三分球命中数破历史纪录！", date: "2023-4-10", url: "https://www.sohu.com/a/665183514_121661262" },
             { title: " 勇士三连败！人心散了，队伍不好带。球队老板已经明确的表态..", date: "2023-3-10", url: "https://fans.sports.qq.com/post.htm?id=1759953827798188072&mid=62#1_allWithElite" },
             { title: "勇士夺冠游行7大亮点！库里再现晚安手势 克莱船长搞笑热舞！", date: "2022-6-21", url: "https://new.qq.com/rain/a/20220621A00NZ300" },
             { title: "勇士夺冠游行日程出炉！全长1.67公里，耗时160分钟", date: "2022-6-19", url: "https://www.163.com/dy/article/HA35ILQ80552NV18.html" },
