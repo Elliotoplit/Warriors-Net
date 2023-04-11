@@ -309,7 +309,7 @@ nav ul li:hover::after {
 }
 
 .gameList .score{
-	font-size:5px;
+	font-size:15px;
 	color:rgb(53, 136, 230)
 }
 
@@ -505,6 +505,7 @@ developer {
 .contentArea3 {
 	display: flex;
 	flex-direction: column;
+	
 }
 
 .documentary {
@@ -680,15 +681,15 @@ developer {
 
 }
 
-@media (max-width: 420px) {
+@media (max-width: 42px) {
 	.bigContent {
-		height: 1450px;
+		height: 850px;
 	}
 }
 
 
 /* 海报侧边栏手机自适应 小米浏览器393 */
-@media (max-width:400px) {
+@media (max-width:430px) {
 	.scrollArea {
 		padding: 5px 0px;
 		height: 210px;
@@ -724,5 +725,10 @@ developer {
 		height: 400px;
 		margin: 20px 10px 5px;
 
+	}
+	.contentArea3 {
+		display: flex;
+		flex-direction: column;
+		height: 330px;
 	}
 }
