@@ -9,6 +9,7 @@
 	<link rel="icon" href="https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/others/logo.png" type="image/x-icon" />
 	<title>金州勇士 Golden State</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<script type='text/javascript' src='script/axios-0.18.0.js'></script>
 </head>
 
 <body>
@@ -70,15 +71,18 @@
 			<aside class="schedule">
 				<div class="title">勇士队赛程</div>
 				<a href="https://china.nba.cn/teams/schedule/#!/warriors" target="_blank" rel="noopener">
-					<ul class="gameList" οnclick="toGameList()">
-						<!-- 比赛序号不为空时才展示序号 -->
-						<li οnclick="toGameList" v-for="item in gameList"><span class="num" v-if="item.order!=''">{{item.order}}</span>
-							<span class="team">{{item.team[0]}}</span>
-							<span class="mid">VS</span>
-							<span class="team">{{item.team[1]}}</span><br>
-							<span class="date">{{item.date}}</span>
+					<ul v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
+						<li v-for="g in teamSchedule">
+							<span class="score" v-if="g.status != null">{{g.homeScore}}</span>
+							<span class="team">{{g.homeTeam}}</span>
+							<span :style="{color:'red'}" v-if="g.status==null" >VS</span>
+							<span class="mid"  v-else>VS</span>
+							<span class="team">{{g.awayTeam}}</span>
+							<span class="score" v-if="g.status != null">{{g.oppoScore}}</span><br>
+							<span class="date">{{g.date}}</span>
 						</li>
 					</ul>
+					<p v-else>近期暂无比赛</p>
 				</a>
 			</aside>
 			<!-- 作者 -->
@@ -99,7 +103,7 @@
 					<ul>
 						<li v-for="item,index in players">
 							<a :href="item.link" target="_blank" rel="noopener">
-							<span class="'app':index+1==players.length">
+							<span class="'color:'red':index+1==players.length">
 								{{item.site}}
 								<span class="free" v-if="index+1==players.length">Free</span>
 							</span></a>

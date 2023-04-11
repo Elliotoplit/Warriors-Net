@@ -3,8 +3,10 @@ var vm = new Vue({
     el: "#app",
     data: {
         slogan:"恭喜金州勇士队挺进2023季后赛!",
+        teamSchedule:[],
         musicUrl: "https://music.163.com/outchain/player?type=2&id=1329664405&auto=0&height=66",
         video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/warriorsGO.mp4'},
+        
         news: [
             { title: " 祝贺勇士队，三分球命中数破历史纪录！", date: "2023-4-10", url: "https://www.sohu.com/a/665183514_121661262" },
             { title: " 勇士三连败！人心散了，队伍不好带。球队老板已经明确的表态..", date: "2023-3-10", url: "https://fans.sports.qq.com/post.htm?id=1759953827798188072&mid=62#1_allWithElite" },
@@ -20,15 +22,7 @@ var vm = new Vue({
             { title: "勇士西决开门红，经过灰熊的洗礼，这支球队真成冠军球队了", date: "2022-5-19", url: "https://new.qq.com/omn/20220519/20220519A0CO2T00.html" },
             { title: " 狄龙追加禁赛，小佩顿赛季报销！库里愤恨发声，他本该大放异彩", date: "2022-5-4", url: "https://www.163.com/dy/article/H6HM0TKE0552ZEBO.html" },
         ],
-        gameList: [
-            { order: 'G1', team: ["凯尔特人", "勇士"], date: "2022-6-3 9:00" },
-            { order: 'G2', team: ["凯尔特人", "勇士"], date: "2022-6-6 8:00" },
-            { order: 'G3', team: ["勇士", "凯尔特人"], date: "2022-6-9 9:00" },
-            { order: 'G4', team: ["勇士", "凯尔特人"], date: "2022-6-11 9:00" },
-            { order: 'G5', team: ["勇士", "凯尔特人"], date: "2022-6-14 9:00" },
-            { order: 'G6', team: ["勇士", "凯尔特人"], date: "2022-6-17 9:00" },
-            { order: 'G7', team: ["凯尔特人", "勇士"], date: "2022-6-20 8:00" }
-        ],
+        
         players: [{ site: "腾讯体育", link: "https://nba.stats.qq.com/schedule" },
         { site: "央视体育", link: "https://tv.cctv.com/live/cctv5/" },
         { site: "24直播吧", link: "http://m.24zhiboba.com/" },
@@ -50,7 +44,46 @@ var vm = new Vue({
         },
         toNext: function () {
             this.video.index+1<this.videos.length?this.video = this.videos[this.video.index+1]:alert("Last One!")
+        },
+        getChinaDate:function(str){
+            //12h时间戳:43200000 美中时间转换
+            var date = new Date(str).getTime()
+            var d = new Date(date+43200000).toLocaleString()//1680314400000
+            s = d.replaceAll('/',"-").substring(0,d.length-3)
+            return s
+        },
+        packageInfo:function(game){
+            gameInfo = {
+                "date":this.getChinaDate(game.profile.dateTimeEt),
+                "homeTeam":game.homeTeam.profile.displayAbbr,
+                "awayTeam":game.awayTeam.profile.displayAbbr,
+                "homeScore":game.teamScore,
+                "oppoScore":game.oppTeamScore,
+                "status":game.boxscore.statusDesc
+            }
+            this.teamSchedule.push(gameInfo)
         }
+    },  
+    created(){
+        // get Warriors Schedule
+        var that = this
+        axios.get("https://m.china.nba.cn/stats2/team/schedule.json?locale=zh_CN&teamCode=warriors").then(
+            response =>{
+                var monthly = response.data.payload.monthGroups//所有月份数据
+                monthly.forEach(month => {
+                    if(month.number == new Date().getMonth() + 1 || month.number == new Date().getMonth()){//如果是当月
+                        month.games.forEach(game => {
+                            that.packageInfo(game)
+                        });
+                    }
+                });
+                that.teamSchedule.reverse()
+                console.log(that.teamSchedule)
+            },error=>{
+                console("赛程数据获取异常" + error)
+                alert("赛程数据获取异常")
+            }
+        )
     }
 })
 

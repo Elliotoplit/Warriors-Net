@@ -296,18 +296,23 @@ nav ul li:hover::after {
 
 }
 
-.schedule .gameList {
-	margin: 0 auto;
 
 
+.gameList ul::-webkit-scrollbar{
+	width: 0 !important
 }
 
 .gameList li {
-
 	cursor: pointer;
 	padding: 4.5px;
-	border-bottom: 1px dashed rgb(124, 157, 228);
+	border-bottom: 1px dashed rgb(124, 157, 228);	
 }
+
+.gameList .score{
+	font-size:5px;
+	color:rgb(53, 136, 230)
+}
+
 
 .gameList li:last-child {
 	border-bottom: none;
@@ -324,7 +329,8 @@ nav ul li:hover::after {
 
 .gameList li .mid {
 	font-size: small;
-	text-shadow: 1px 1px 1px red;
+	font-color:red;
+	text-shadow: 1px 1px 1px rgb(177, 241, 248);
 }
 
 li .date {
@@ -358,6 +364,9 @@ li .date {
 	vertical-align: middle;
 	padding: auto 0;
 	line-height: 55px;
+}
+.liveList ul li a:visited {
+	color: #238cac;
 }
 
 .liveList ul li:last-child {
