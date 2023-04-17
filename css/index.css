@@ -294,6 +294,7 @@ nav ul li:hover::after {
 	/* 新增属性 */
 	position: sticky;
 	width: 100%;
+	top:0%;
 }
 
 

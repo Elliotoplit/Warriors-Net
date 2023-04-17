@@ -70,20 +70,21 @@
 			<!-- 赛程 -->
 			<aside class="schedule">
 				<div class="title">勇士队赛程</div>
-					<div  v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
-						<ul>
-							<li v-for="g in teamSchedule">
-								<span class="score" v-if="g.status != 0">{{g.homeScore}}</span>
-								<span class="team">{{g.homeTeam}}</span>
-								<span :style="{color:'red'}" v-if="g.status==0" >VS</span>
-								<span class="mid"  v-else>VS</span>
-								<span class="team">{{g.awayTeam}}</span>
-								<span class="score" v-if="g.status != 0">{{g.oppoScore}}</span><br>
-								<span class="date">{{g.date}}</span>
-							</li>
-						</ul>
-						<p v-else>近期暂无比赛</p>
-					</div>
+				
+				<div  v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
+					<ul>
+						<li v-for="g in teamSchedule">
+							<span class="score" v-if="g.status != 0">{{g.homeScore}}</span>
+							<span class="team">{{g.homeTeam}}</span>
+							<span :style="{color:'red'}" v-if="g.status==0" >VS</span>
+							<span class="mid"  v-else>VS</span>
+							<span class="team">{{g.awayTeam}}</span>
+							<span class="score" v-if="g.status != 0">{{g.oppoScore}}</span><br>
+							<span class="date">{{g.date}}</span>
+						</li>
+					</ul>
+					<p v-else>近期暂无比赛</p>
+				</div>
 			</aside>
 			<!-- 作者 -->
 			<div class="developer">
