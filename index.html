@@ -70,17 +70,17 @@
 			<!-- 赛程 -->
 			<aside class="schedule">
 				<div class="title">勇士队赛程</div>
-				
+
 				<div  v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
 					<ul>
 						<li v-for="g in teamSchedule">
-							<span class="score" v-if="g.status != 0">{{g.homeScore}}</span>
-							<span class="team">{{g.homeTeam}}</span>
-							<span :style="{color:'red'}" v-if="g.status==0" >VS</span>
+							<span class="score" v-if="g.status != 0" v-text="g.homeScore"></span>
+							<span class="team" v-text="g.homeTeam"></span>
+							<span :style="{color:'red'}" v-if="g.status==0">VS</span>
 							<span class="mid"  v-else>VS</span>
-							<span class="team">{{g.awayTeam}}</span>
-							<span class="score" v-if="g.status != 0">{{g.oppoScore}}</span><br>
-							<span class="date">{{g.date}}</span>
+							<span class="team" v-text="g.awayTeam"></span>
+							<span class="score" v-if="g.status != 0" v-text="g.oppoScore"></span><br>
+							<span class="date" v-text="g.date"></span>
 						</li>
 					</ul>
 					<p v-else>近期暂无比赛</p>
@@ -104,10 +104,9 @@
 					<ul>
 						<li v-for="item,index in players">
 							<a :href="item.link" target="_blank" rel="noopener">
-							<span class="'color:'red':index+1==players.length">
-								{{item.site}}
-								<span class="free" v-if="index+1==players.length">Free</span>
-							</span></a>
+							<span class="'color:'red':index+1==players.length" v-text="item.site"></span>
+							</a>
+							<span class="free" v-if="index+1==players.length">Free</span>
 						</li>
 					</ul>
 				</div>
@@ -120,8 +119,8 @@
 				<div class="content">
 					<div class="post" v-for="item in news" >
 						<div class="dot"></div>
-						<a :href="item.url">{{item.title}}</a>
-						<span class="time"s>{{item.date}}</span>
+						<a :href="item.url" v-text="item.title"></a>
+						<span class="time" v-text="item.date"></span>
 					</div>
 				</div>
 			</article>

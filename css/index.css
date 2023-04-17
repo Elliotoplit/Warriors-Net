@@ -17,8 +17,8 @@ header {
 header .topArea {
 	height: 50px;
 	background-color: #0146ad;
-	position: sticky;
 	position: -webkit-sticky;
+	position: sticky;
 	top: 0%;
 	z-index: 1;
 }
@@ -305,12 +305,17 @@ nav ul li:hover::after {
 	flex-direction: column;
 	justify-content: space-between;
 	height: 98%;
-	overflow-y: scroll;
+	overflow: auto;
+	/* 消除滚动条 */
+	scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 }
 .liveList ul::-webkit-scrollbar
 .gameList ul::-webkit-scrollbar{
-	width: 0 !important
+	width: 0px;
+    background: transparent; /* Safari and Chrome */
 }
+
 
 .gameList ul li {
 	line-height: 35px;
@@ -335,7 +340,6 @@ nav ul li:hover::after {
 
 .gameList li .mid {
 	font-size: small;
-	font-color:red;
 	text-shadow: 1px 1px 1px rgb(177, 241, 248);
 }
 
