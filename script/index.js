@@ -65,7 +65,7 @@ var vm = new Vue({
             this.teamSchedule.push(gameInfo)
         }
     },  
-    created(){
+    beforeCreate(){
         // get Warriors Schedule
         var that = this
         axios.get("https://m.china.nba.cn/stats2/team/schedule.json?locale=zh_CN&teamCode=warriors").then(

@@ -306,16 +306,8 @@ nav ul li:hover::after {
 	justify-content: space-between;
 	height: 98%;
 	overflow: auto;
-	/* 消除滚动条 */
-	scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-}
-.liveList ul::-webkit-scrollbar
-.gameList ul::-webkit-scrollbar{
-	width: 0px;
-    background: transparent; /* Safari and Chrome */
-}
 
+}
 
 .gameList ul li {
 	line-height: 35px;
