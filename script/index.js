@@ -5,7 +5,8 @@ var vm = new Vue({
         slogan:"恭喜金州勇士队挺进2023季后赛!",
         teamSchedule:[],
         musicUrl: "https://music.163.com/outchain/player?type=2&id=1329664405&auto=0&height=66",
-        video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/warriorsGO.mp4'},
+        // video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/warriorsGO.mp4'},
+        video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/GoldenStateChampionSeason .mp4'},
         
         news: [
             { title: " 祝贺勇士队，三分球命中数破历史纪录！", date: "2023-4-10", url: "https://www.sohu.com/a/665183514_121661262" },
@@ -59,7 +60,7 @@ var vm = new Vue({
                 "awayTeam":game.awayTeam.profile.displayAbbr,
                 "homeScore":game.teamScore,
                 "oppoScore":game.oppTeamScore,
-                "status":game.boxscore.statusDesc
+                "status":game.boxscore.statusDesc==null || game.boxscore.statusDesc=="待定"?0:1
             }
             this.teamSchedule.push(gameInfo)
         }
@@ -78,6 +79,9 @@ var vm = new Vue({
                     }
                 });
                 that.teamSchedule.reverse()
+                if(that.teamSchedule.length>14){
+                    that.teamSchedule = that.teamSchedule.slice(0,14)
+                }
                 console.log(that.teamSchedule)
             },error=>{
                 console("赛程数据获取异常" + error)

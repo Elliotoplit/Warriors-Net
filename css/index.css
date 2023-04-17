@@ -17,11 +17,10 @@ header {
 header .topArea {
 	height: 50px;
 	background-color: #0146ad;
-	position: relative;
-}
-
-.titleArea:hover {
-	cursor: pointer;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0%;
+	z-index: 1;
 }
 
 header .topArea span {
@@ -248,7 +247,7 @@ nav ul li:hover::after {
 	height: 1950px;
 	background: rgb(239, 245, 177);
 	background: linear-gradient(90deg, rgba(239, 245, 177, 1) 0%,
-	 rgba(186, 214, 242, 1) 44%, rgba(252, 243, 146, 1) 100%);
+	rgba(186, 214, 242, 1) 44%, rgba(252, 243, 146, 1) 100%);
 }
 
 .contentTitle {
@@ -284,7 +283,6 @@ nav ul li:hover::after {
 	background: rgba(221, 233, 254, 0.462);
 	-webkit-backdrop-filter: blur(11px);
 	backdrop-filter: blur(11px);
-
 }
 
 .schedule .title,
@@ -293,33 +291,40 @@ nav ul li:hover::after {
 	font-weight: bold;
 	padding: 5px 10px;
 	background-color: rgb(246, 194, 25);
-
+	/* 新增属性 */
+	position: sticky;
+	width: 100%;
 }
 
 
-
+/* 比赛列表 */
+.liveList ul
+.gameList ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 98%;
+	overflow-y: scroll;
+}
+.liveList ul::-webkit-scrollbar
 .gameList ul::-webkit-scrollbar{
 	width: 0 !important
 }
 
-.gameList li {
-	cursor: pointer;
-	padding: 4.5px;
-	border-bottom: 1px dashed rgb(124, 157, 228);	
+.gameList ul li {
+	line-height: 35px;
+	flex: 1;
+	border-bottom: 1px solid red;
+	vertical-align: middle;
+	padding: auto 0;
 }
-
-.gameList .score{
-	font-size:15px;
-	color:rgb(53, 136, 230)
-}
-
 
 .gameList li:last-child {
 	border-bottom: none;
 }
-
-.gameList li .num {
-	color: rgb(23, 124, 14);
+.gameList .score{
+	font-size:13px;
+	color:rgb(11, 66, 128)
 }
 
 .gameList li .team {
@@ -333,29 +338,14 @@ nav ul li:hover::after {
 	text-shadow: 1px 1px 1px rgb(177, 241, 248);
 }
 
-li .date {
+.gameList li .date {
 	color: #0146ad;
 	font-size: smaller;
 	height: 3px;
-
 }
+
 
 /* 直播 + */
-.liveList {
-	height: 92%;
-}
-
-.liveList ul {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 98%;
-	overflow-y: scroll;
-}
-.liveList ul::-webkit-scrollbar{
-	width: 0 !important
-}
-
 .liveList ul li {
 	font-size: larger;
 	font-weight: bold;
@@ -365,8 +355,9 @@ li .date {
 	padding: auto 0;
 	line-height: 55px;
 }
+.liveList ul li a:link,
 .liveList ul li a:visited {
-	color: #238cac;
+	color: #233eac;
 }
 
 .liveList ul li:last-child {
@@ -376,11 +367,6 @@ li .date {
 .liveList ul li .free {
 	font-size: small;
 	color: green;
-}
-
-
-.liveList ul li:visited {
-	color: #0000ee;
 }
 
 

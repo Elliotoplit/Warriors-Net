@@ -70,20 +70,20 @@
 			<!-- 赛程 -->
 			<aside class="schedule">
 				<div class="title">勇士队赛程</div>
-				<a href="https://china.nba.cn/teams/schedule/#!/warriors" target="_blank" rel="noopener">
-					<ul v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
-						<li v-for="g in teamSchedule">
-							<span class="score" v-if="g.status != null">{{g.homeScore}}</span>
-							<span class="team">{{g.homeTeam}}</span>
-							<span :style="{color:'red'}" v-if="g.status==null" >VS</span>
-							<span class="mid"  v-else>VS</span>
-							<span class="team">{{g.awayTeam}}</span>
-							<span class="score" v-if="g.status != null">{{g.oppoScore}}</span><br>
-							<span class="date">{{g.date}}</span>
-						</li>
-					</ul>
-					<p v-else>近期暂无比赛</p>
-				</a>
+					<div  v-if="this.teamSchedule.length" class="gameList" οnclick="toGameList()">
+						<ul>
+							<li v-for="g in teamSchedule">
+								<span class="score" v-if="g.status != 0">{{g.homeScore}}</span>
+								<span class="team">{{g.homeTeam}}</span>
+								<span :style="{color:'red'}" v-if="g.status==0" >VS</span>
+								<span class="mid"  v-else>VS</span>
+								<span class="team">{{g.awayTeam}}</span>
+								<span class="score" v-if="g.status != 0">{{g.oppoScore}}</span><br>
+								<span class="date">{{g.date}}</span>
+							</li>
+						</ul>
+						<p v-else>近期暂无比赛</p>
+					</div>
 			</aside>
 			<!-- 作者 -->
 			<div class="developer">
@@ -97,7 +97,7 @@
 				</div>
 			</div>
 			<!-- 直播 -->
-			<section class="toLive">
+			<aside class="toLive">
 				<div class="title">观看直播</div>
 				<div class="liveList">
 					<ul>
@@ -110,7 +110,7 @@
 						</li>
 					</ul>
 				</div>
-			</section>
+			</aside>
 		</section>
 		<!-- 内容分区2:新闻 -->
 		<section class="contentArea2">
