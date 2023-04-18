@@ -247,7 +247,7 @@ nav ul li:hover::after {
 	height: 1950px;
 	background: rgb(239, 245, 177);
 	background: linear-gradient(90deg, rgba(239, 245, 177, 1) 0%,
-	rgba(186, 214, 242, 1) 44%, rgba(252, 243, 146, 1) 100%);
+			rgba(186, 214, 242, 1) 44%, rgba(252, 243, 146, 1) 100%);
 }
 
 .contentTitle {
@@ -294,13 +294,12 @@ nav ul li:hover::after {
 	/* 新增属性 */
 	position: sticky;
 	width: 100%;
-	top:0%;
+	top: 0%;
 }
 
 
 /* 比赛列表 */
-.liveList ul
-.gameList ul {
+.liveList ul .gameList ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -320,9 +319,10 @@ nav ul li:hover::after {
 .gameList li:last-child {
 	border-bottom: none;
 }
-.gameList .score{
-	font-size:13px;
-	color:rgb(11, 66, 128)
+
+.gameList .score {
+	font-size: 13px;
+	color: rgb(11, 66, 128)
 }
 
 .gameList li .team {
@@ -341,6 +341,21 @@ nav ul li:hover::after {
 	height: 3px;
 }
 
+.playing::after {
+	content: '';
+	position: absolute;
+	background: #07182E;
+	;
+	inset: 5px;
+	border-radius: 15px;
+}
+
+/* .card:hover:before {
+	background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
+	animation: rotBGimg 3.5s linear infinite;
+  } */
+
+
 
 /* 直播 + */
 .liveList ul li {
@@ -352,6 +367,7 @@ nav ul li:hover::after {
 	padding: auto 0;
 	line-height: 55px;
 }
+
 .liveList ul li a:link,
 .liveList ul li a:visited {
 	color: #233eac;
@@ -488,7 +504,7 @@ developer {
 .contentArea3 {
 	display: flex;
 	flex-direction: column;
-	
+
 }
 
 .documentary {
@@ -509,23 +525,27 @@ developer {
 	background-color: rgb(246, 194, 25);
 	position: relative;
 }
+
 .documentary .title .last,
-.documentary .title .next{
+.documentary .title .next {
 	color: rgb(34, 94, 222);
 	cursor: pointer;
 	position: absolute;
 	font-weight: bolder;
 	font-size: larger;
 }
-.documentary .title .last{
+
+.documentary .title .last {
 	left: 20px;
 }
-.documentary .title .next{
+
+.documentary .title .next {
 	right: 20px;
 }
+
 .documentary .title .next:hover,
-.documentary .title .last:hover{
-	text-shadow: 1px 1px 2px white ;
+.documentary .title .last:hover {
+	text-shadow: 1px 1px 2px white;
 	color: #0d50b5;
 }
 
@@ -709,6 +729,7 @@ developer {
 		margin: 20px 10px 5px;
 
 	}
+
 	.contentArea3 {
 		display: flex;
 		flex-direction: column;

@@ -60,9 +60,21 @@ var vm = new Vue({
                 "awayTeam":game.awayTeam.profile.displayAbbr,
                 "homeScore":game.teamScore,
                 "oppoScore":game.oppTeamScore,
-                "status":game.boxscore.statusDesc==null || game.boxscore.statusDesc=="待定"?0:1
+                "status":this.getStatus(game)
             }
             this.teamSchedule.push(gameInfo)
+        },
+        getStatus:function(game){
+            gamestat = game.boxscore.statusDesc
+            if(gamestat==null || gamestat=="待定"){
+                return 0
+            }
+            else if(gamestat=="结束"){
+                return 1
+            }
+            else{
+                return 0.5
+            }
         }
     },  
     beforeCreate(){

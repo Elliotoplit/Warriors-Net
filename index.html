@@ -77,10 +77,13 @@
 							<span class="score" v-if="g.status != 0" v-text="g.homeScore"></span>
 							<span class="team" v-text="g.homeTeam"></span>
 							<span :style="{color:'red'}" v-if="g.status==0">VS</span>
-							<span class="mid"  v-else>VS</span>
+							<span class="mid"  v-else-if="g.status==1">VS</span>
+							<span :style="{color:'red'}" v-else>VS</span>
+							
 							<span class="team" v-text="g.awayTeam"></span>
 							<span class="score" v-if="g.status != 0" v-text="g.oppoScore"></span><br>
-							<span class="date" v-text="g.date"></span>
+							<span class="date" :style="{color:'red'}" v-text="g.date" v-if="g.status==0.5"></span>
+							<span class="date"                      v-text="g.date" v-else></span>
 						</li>
 					</ul>
 					<p v-else>近期暂无比赛</p>
