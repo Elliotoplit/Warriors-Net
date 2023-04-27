@@ -58,8 +58,8 @@ var vm = new Vue({
                 "date":this.getChinaDate(game.profile.dateTimeEt),
                 "homeTeam":game.homeTeam.profile.displayAbbr,
                 "awayTeam":game.awayTeam.profile.displayAbbr,
-                "homeScore":game.teamScore,
-                "oppoScore":game.oppTeamScore,
+                "homeScore":this.homeTeam=="勇士"?game.teamScore:game.oppTeamScore,
+                "oppoScore":game.teamScore,
                 "status":this.getStatus(game)
             }
             this.teamSchedule.push(gameInfo)
