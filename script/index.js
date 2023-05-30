@@ -31,6 +31,7 @@ var vm = new Vue({
         { site: "热狗直播", link: "https://jxcxgk.com/list/NBA/" },
         { site: "93直播", link: "http://m.93ty.vip/#/" },
         { site: "优直播", link: "https://www.yoozhibo.net/lanqiu/nba/" },
+        { site: "低调看球", link: "https://ddkanqiu.net/" },
         { site: "9球直播", link: "https://www.99zbwang.com/class/basketball/" },
         { site: "直播App", link: "pages/appList.html" }
         ],
