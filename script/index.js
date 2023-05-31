@@ -2,7 +2,7 @@
 var vm = new Vue({
     el: "#app",
     data: {
-        slogan:"FxxK U STEVE KERR!",
+        slogan:"See You Next Season!",
         teamSchedule:[],
         musicUrl: "https://music.163.com/outchain/player?type=2&id=1329664405&auto=0&height=66",
         // video:{index:0, poster:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/img/poster/poster-1.png',src:'https://warriorsgo.oss-cn-chengdu.aliyuncs.com/vdo/warriorsGO.mp4'},
